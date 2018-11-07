@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './container/App';
+import App from 'view/App';
 import * as serviceWorker from './serviceWorker';
+
+import './mock/index.js';
 
 ReactDOM.render( < App / > , document.getElementById('root'));
 

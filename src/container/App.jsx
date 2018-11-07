@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import RouteView from "router"
 
 
 class App extends Component {
   render() {
     return(
-      <h1>hello</h1>
+      <div className="wrap">
+        <RouteView/>
+      </div>
     )
   }
 }
