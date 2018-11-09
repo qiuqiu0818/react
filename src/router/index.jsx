@@ -1,17 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router } from "react-router-dom"
-import RouteMap from './map'
 
+import RouteMap from './map'
+import Routes from './routes'
 class RouterView extends React.Component{
     render(){
+        let {routes}=this.props;
         return (
-            <Router>
-                <RouteMap/>
-                {/* <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/type" component={Type} />
-                </Switch> */}
-          </Router>
+            <RouteMap routes={routes?routes:Routes}/>
         )
     }
 }

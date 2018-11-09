@@ -1,15 +1,20 @@
 import React from 'react'
-import { Route, Switch } from "react-router-dom"
-import Routes from './routes'
+import { Route, Switch ,Redirect} from "react-router-dom"
 
 class RouterMap extends React.Component{
     render(){
+        let {routes}=this.props;
+        const defaultRoute=<Route key={1} exact path={'/'|'/type'} component={()=>
+            <Redirect to='/type/hot'/>
+        }/>
         return(
             <Switch>
                 {
-                    Routes.length&&Routes.map((item,ind)=>{
-                        return <Route exact key={ind} path={item.path} component={item.component}/>
-                    })
+                    routes.length&&routes.map((item,ind)=>{
+                        return <Route key={ind} path={item.path} render={()=>{
+                            return <item.component routes={item.children}/>
+                        }}/>
+                    }).concat([defaultRoute])
                 }
             </Switch>
         )
